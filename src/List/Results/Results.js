@@ -1,14 +1,15 @@
 import React from 'react'
-import { userInfo } from 'os';
+import ResultsItem from './ResultsItem'
 
 const Results = (props) => (
     <div>
         {
             props.data.map(
                 user => (
-                    <div>
-                        {user.name.first} {user.name.last}
-                    </div>
+                    <ResultsItem
+                        key={user.login.uuid}
+                        user={user}
+                    />
                 )
             )
         }
