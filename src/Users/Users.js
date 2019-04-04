@@ -33,8 +33,9 @@ class Users extends React.Component {
                 user => {
                     const name = (user.name.first + user.name.last).toLowerCase()
                     const searchTerm = this.state.searchTerm.toLowerCase()
+                    const searchTermWithoutSpaces = searchTerm.replace(/ /g, '')
 
-                    return name.includes(searchTerm)
+                    return name.includes(searchTermWithoutSpaces)
                 }
             )
         )
@@ -54,6 +55,5 @@ class Users extends React.Component {
         )
     }
 }
-
 
 export default Users
