@@ -15,7 +15,7 @@ class List extends React.Component {
     render() {
         return (
             <div>
-
+                {JSON.stringify(this.state.user)}
             </div>
         )
     }
