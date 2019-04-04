@@ -1,11 +1,10 @@
 import React from 'react'
+
 import Error from './Error'
 import Loading from './Loading'
 import NotLoaded from './NotLoaded'
 import NoUsers from './NoUsers'
-
-
-
+import Results from './Results'
 
 class List extends React.Component {
     state = {
@@ -40,7 +39,9 @@ class List extends React.Component {
                                 this.state.users.length === 0 ?
                                     <NoUsers />
                                     :
-                                    JSON.stringify(this.state.users)
+                                    <Results
+                                        data={this.state.users}
+                                    />
                 }
             </div>
         )
