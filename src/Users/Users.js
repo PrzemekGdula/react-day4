@@ -34,8 +34,9 @@ class Users extends React.Component {
                     const name = (user.name.first + user.name.last).toLowerCase()
                     const searchTerm = this.state.searchTerm.toLowerCase()
                     const searchTermWithoutSpaces = searchTerm.replace(/ /g, '')
+                    const searchTermWithoutDiacritics = searchTermWithoutSpaces.normalize('NFD').replace(/[\u0300-\u036f]/g, "")
 
-                    return name.includes(searchTermWithoutSpaces)
+                    return name.includes(searchTermWithoutDiacritics)
                 }
             )
         )
