@@ -8,6 +8,7 @@ class Users extends React.Component {
         users: null,
         isLoading: false,
         isError: false,
+        searchTerm: ''
     }
 
     componentDidMount() {
@@ -19,10 +20,18 @@ class Users extends React.Component {
             .catch(() => this.setState({ isError: true }))
             .finally(() => this.setState({ isLoading: false }))
     }
+
+    onSearchTermChange = event => this.setState({
+        searchTerm: (event.target.value)
+    })
+
     render() {
         return (
             <div>
-                <Search />
+                <Search
+                    searchTerm={this.state.searchTerm}
+                    onSearchTermChange={this.onSearchTermChange}
+                />
                 <List
                     users={this.state.users}
                     isLoading={this.state.isLoading}
