@@ -6,30 +6,26 @@ import NotLoaded from './NotLoaded'
 import NoUsers from './NoUsers'
 import Results from './Results'
 
-class List extends React.Component {
-    
-    render() {
-        return (
-            <div>
-                {
-                    this.props.isError ?
-                        <Error />
+const List = (props) => (
+    <div>
+        {
+            props.isError ?
+                <Error />
+                :
+                props.isLoading ?
+                    <Loading />
+                    :
+                    !props.users ?
+                        <NotLoaded />
                         :
-                        this.props.isLoading ?
-                            <Loading />
+                        props.users.length === 0 ?
+                            <NoUsers />
                             :
-                            !this.props.users ?
-                                <NotLoaded />
-                                :
-                                this.props.users.length === 0 ?
-                                    <NoUsers />
-                                    :
-                                    <Results
-                                        data={this.props.users}
-                                    />
-                }
-            </div>
-        )
-    }
-}
+                            <Results
+                                data={props.users}
+                            />
+        }
+    </div>
+)
+
 export default List
