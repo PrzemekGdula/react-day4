@@ -1,19 +1,16 @@
 import React from 'react'
 import TextField from '@material-ui/core/TextField'
 
-class Search extends React.Component {
+const Search = (props) => (
 
-    render() {
-        return (
-            <div>
-                <TextField
-                    value={this.props.searchTerm}
-                    onChange={this.props.onSearchTermChange}
-                    fullWidth={true}
-                />
-            </div>
-        )
-    }
-}
+    <div>
+        <TextField
+            value={props.searchTerm}
+            onChange={props.onSearchTermChange}
+            fullWidth={true}
+        />
+    </div>
+)
+
 
 export default Search
